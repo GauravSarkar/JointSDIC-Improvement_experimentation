@@ -5,16 +5,16 @@ echo "${lr}"
 export MODEL_DIR=JointBERT-CRF_XLM-Rencoder
 export MODEL_DIR=$MODEL_DIR"/"$lr"/"$c"/"$s
 echo "${MODEL_DIR}"
-python3 main.py --token_level syllable-level \
+python3 /content/JointSDIC/main.py --token_level syllable-level \
                   --model_type xlmr \
                   --model_dir $MODEL_DIR \
-                  --data_dir PhoATIS \
+                  --data_dir /content/JointSDIC/PhoATIS \
                   --seed $s \
                   --do_train \
                   --do_eval \
                   --save_steps 140 \
                   --logging_steps 140 \
-                  --num_train_epochs 50 \
+                  --num_train_epochs 5 \
                   --tuning_metric mean_intent_slot \
                   --use_crf \
                   --gpu_id 0 \
