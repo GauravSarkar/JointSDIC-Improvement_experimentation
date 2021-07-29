@@ -5,10 +5,10 @@ echo "${lr}"
 export MODEL_DIR=JointBERT-CRF_PhoBERTencoder
 export MODEL_DIR=$MODEL_DIR"/"$lr"/"$c"/"$s
 echo "${MODEL_DIR}"
-python3 /content/JointSDIC/main.py --token_level word-level \
+python3 /content/JointSDIC-Improvement_experimentation/main.py --token_level word-level \
                   --model_type phobert \
                   --model_dir $MODEL_DIR \
-                  --data_dir /content/JointSDIC/PhoATIS \
+                  --data_dir /content/JointSDIC-Improvement_experimentation/PhoATIS \
                   --seed $s \
                   --do_train \
                   --do_eval \
