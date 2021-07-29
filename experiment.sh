@@ -1,15 +1,15 @@
-bash /content/JointSDIC/run_jointBERT-CRF_XLM-Rencoder.sh
-export lr=4e-5
+bash /content/JointSDIC-Improvement_experimentation/run_jointBERT-CRF_XLM-Rencoder.sh
+export lr=3e-5
 export c=0.45
 export s=10
 echo "${lr}"
-export MODEL_DIR=JointBERT-CRF_PhoBERTencoder
+export MODEL_DIR=JointBERT-CRF_XLM-Rencoder
 export MODEL_DIR=$MODEL_DIR"/"$lr"/"$c"/"$s
 echo "${MODEL_DIR}"
-python3 /content/JointSDIC/main.py --token_level syllable-level \
-                  --model_type phobert \
+python3 /content/JointSDIC-Improvement_experimentation/main.py --token_level syllable-level \
+                  --model_type xlmr \
                   --model_dir $MODEL_DIR \
-                  --data_dir /content/JointSDIC/PhoATIS \
+                  --data_dir /content/JointSDIC-Improvement_experimentation/PhoATIS \
                   --seed $s \
                   --do_train \
                   --do_eval \
