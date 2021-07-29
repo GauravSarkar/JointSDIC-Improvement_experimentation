@@ -1,5 +1,5 @@
 #As we initialize JointIDSF from JointBERT, user need to train a base model JointBERT first
-bash /content/JointSDIC/run_jointBERT-CRF_XLM-Rencoder.sh
+bash /content/JointSDIC-Improvement_experimentation/experiment.sh
 #Train JointIDSF
 export lr=3e-5
 export c=0.25
@@ -8,10 +8,10 @@ echo "${lr}"
 export MODEL_DIR=JointIDSF_XLM-Rencoder
 export MODEL_DIR=$MODEL_DIR"/"$lr"/"$c"/"$s
 echo "${MODEL_DIR}"
-python3 /content/JointSDIC/main.py --token_level syllable-level \
+python3 /content/JointSDIC-Improvement_experimentation/main.py --token_level syllable-level \
                   --model_type xlmr \
                   --model_dir $MODEL_DIR \
-                  --data_dir /content/JointSDIC/PhoATIS \
+                  --data_dir /content/JointSDIC-Improvement_experimentation/PhoATIS \
                   --seed $s \
                   --do_train \
                   --do_eval \
@@ -26,5 +26,5 @@ python3 /content/JointSDIC/main.py --token_level syllable-level \
                   --embedding_type soft \
                   --intent_loss_coef $c \
                   --pretrained \
-                  --pretrained_path JointBERT-CRF_XLM-Rencoder/4e-5/0.45/10 \
+                  --pretrained_path JointBERT-CRF_XLM-Rencoder/3e-5/0.45/10 \
                   --learning_rate $lr
